@@ -23,6 +23,9 @@
         "indigophp/codeception-fuel-module": "dev-develop"
     },
     "autoload": {
+        "psr-0": {
+            "Indigo\\Cart\\": "lib/"
+        },
         "psr-4": {
             "Indigo\\Fuel\\": "classes/"
         }
