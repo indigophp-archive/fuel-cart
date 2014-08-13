@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Fuel Skeleton package.
+ * This file is part of the Fuel Cart package.
  *
  * (c) Indigo Development Team
  *
@@ -18,4 +18,7 @@
  * This will allow you to upgrade fuel without losing your custom config.
  */
 
-return array();
+return array(
+	'cart'  => array(),
+	'store' => array(),
+);
