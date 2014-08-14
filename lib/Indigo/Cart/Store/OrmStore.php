@@ -13,8 +13,6 @@ namespace Indigo\Cart\Store;
 
 use Indigo\Cart\CartInterface;
 use Indigo\Cart\Item;
-use Indigo\Webshop\Model\CartModel;
-use Indigo\Webshop\Model\CartItemModel;
 
 /**
  * ORM Store
@@ -30,7 +28,7 @@ class OrmStore
 	 */
 	public function load(CartInterface $cart)
 	{
-		$model = CartModel::query()
+		$model = \Model\CartModel::query()
 			->related('items')
 			->where('identifier', $cart->getId())
 			->get_one();
@@ -51,7 +49,7 @@ class OrmStore
 	 */
 	public function save(CartInterface $cart)
 	{
-		$model = CartModel::query()
+		$model = \Model\CartModel::query()
 			->related('items')
 			->where('identifier', $cart->getId())
 			->get_one();
@@ -78,12 +76,12 @@ class OrmStore
 		}
 		else
 		{
-			$model = CartModel::forgeFromCart($cart);
+			$model = \Model\CartModel::forgeFromCart($cart);
 		}
 
 		foreach ($items as $id => $item)
 		{
-			$model->items[] = CartItemModel::forgeFromItem($item);
+			$model->items[] = \Model\Cart\ItemModel::forgeFromItem($item);
 		}
 
 		return $model->save(true);
@@ -94,13 +92,16 @@ class OrmStore
 	 */
 	public function delete(CartInterface $cart)
 	{
-		$model = CartModel::query()
+		$model = \Model\CartModel::query()
+			->related('items')
 			->where('identifier', $cart->getId())
 			->get_one();
 
 		if ($model)
 		{
-			return (bool) $model->delete();
+			$model->delete(true);
+
+			return isset($model->id) === false;
 		}
 
 		return false;

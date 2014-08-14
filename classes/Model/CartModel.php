@@ -11,38 +11,45 @@
 
 namespace Indigo\Fuel\Model;
 
-use Indigo\Cart\Cart;
+use Indigo\Cart\CartInterface;
 use Orm\Model;
 
 /**
  * Cart Model
  *
- * Cart Model definition
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
 class CartModel extends Model
 {
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_has_many = array(
 		'items' => array(
-			'model_to' => 'Indigo\\Webshop\\Model\\CartItemModel',
+			'model_to' => 'Model\\Cart\\ItemModel',
 			'key_to'   => 'cart_id',
 			'cascade_delete' => true,
 		),
 	);
 
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_observers = array(
 		'Orm\Observer_CreatedAt' => array(
-			'events' => array('before_insert'),
+			'events'          => array('before_insert'),
 			'mysql_timestamp' => false,
 		),
 		'Orm\Observer_UpdatedAt' => array(
-			'events' => array('before_save'),
+			'events'          => array('before_save'),
 			'mysql_timestamp' => false,
-			'relations' => array('items'),
+			'relations'       => array('items'),
 		),
 	);
 
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_properties = array(
 		'id',
 		'user_id',
@@ -51,9 +58,19 @@ class CartModel extends Model
 		'updated_at',
 	);
 
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_table_name = 'carts';
 
-	public static function forgeFromCart(Cart $cart)
+	/**
+	 * Creates a new model from a cart
+	 *
+	 * @param CartInterface $cart
+	 *
+	 * @return this
+	 */
+	public static function forgeFromCart(CartInterface $cart)
 	{
 		return static::forge(array(
 			'identifier' => $cart->getId()

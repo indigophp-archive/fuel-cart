@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Fuel\Model;
+namespace Indigo\Fuel\Model\Cart;
 
 use Indigo\Cart\ItemInterface;
 use Indigo\Cart\Item;
@@ -18,12 +18,13 @@ use Orm\Model;
 /**
  * Cart Item Model
  *
- * Cart Item Model definition
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class CartItemModel extends Model
+class ItemModel extends Model
 {
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_belongs_to = array(
 		'cart' => array(
 			'key_from' => 'cart_id',
@@ -31,6 +32,9 @@ class CartItemModel extends Model
 		)
 	);
 
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_properties = array(
 		'id',
 		'cart_id',
@@ -42,8 +46,18 @@ class CartItemModel extends Model
 		'option',
 	);
 
+	/**
+	 * {@inheritdoc}
+	 */
 	protected static $_table_name = 'cart_items';
 
+	/**
+	 * Creates a new model from an item
+	 *
+	 * @param ItemInterface $item
+	 *
+	 * @return this
+	 */
 	public static function forgeFromItem(ItemInterface $item)
 	{
 		$data = array(
@@ -62,6 +76,13 @@ class CartItemModel extends Model
 		return static::forge($data);
 	}
 
+	/**
+	 * Creates a new item from a model
+	 *
+	 * @param string $class
+	 *
+	 * @return ItemInterface
+	 */
 	public function forgeItem($class = 'Indigo\\Cart\\Item')
 	{
 		$item = array(
