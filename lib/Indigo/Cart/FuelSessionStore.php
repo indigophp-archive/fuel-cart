@@ -9,9 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Cart\Store;
-
-use Indigo\Cart\CartInterface;
+namespace Indigo\Cart;
 
 /**
  * Fuel Session Store
@@ -25,11 +23,11 @@ class FuelSessionStore extends SessionStore
 	/**
 	 * {@inheritdoc}
 	 */
-	public function load(CartInterface $cart)
+	public function load(Cart $cart)
 	{
 		$items = \Session::get($this->sessionKey . '.' . $cart->getId(), array());
 
-		$cart->setContents($items);
+		$cart->setItems($items);
 
 		return true;
 	}
@@ -37,9 +35,10 @@ class FuelSessionStore extends SessionStore
 	/**
 	 * {@inheritdoc}
 	 */
-	public function save(CartInterface $cart)
+	public function save(Cart $cart)
 	{
-		$data = $cart->getContents();
+		$data = $cart->getItems();
+
 		\Session::set($this->sessionKey . '.' . $cart->getId(), $data);
 
 		return true;
@@ -48,7 +47,7 @@ class FuelSessionStore extends SessionStore
 	/**
 	 * {@inheritdoc}
 	 */
-	public function delete(CartInterface $cart)
+	public function delete(Cart $cart)
 	{
 		\Session::delete($this->sessionKey . '.' . $cart->getId());
 

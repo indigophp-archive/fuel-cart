@@ -30,7 +30,7 @@ class StoreTest extends Test
 	{
 		$class = Store::forge();
 
-		$this->assertInstanceOf('Indigo\\Cart\\Store\\StoreInterface', $class);
+		$this->assertInstanceOf('Indigo\\Cart\\Store', $class);
 	}
 
 	/**

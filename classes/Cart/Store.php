@@ -11,7 +11,7 @@
 
 namespace Indigo\Fuel\Cart;
 
-use Indigo\Cart\Store\StoreInterface;
+use Indigo\Cart\Store as StoreInterface;
 
 /**
  * Store Facade class

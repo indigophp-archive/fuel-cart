@@ -18,7 +18,7 @@ namespace Indigo\Cart\Store;
  *
  * @coversDefaultClass Indigo\Cart\Store\FuelSessionStore
  */
-class FuelSessionStoreTest extends AbstractStoreTest
+class FuelSessionStore
 {
 	public function _before()
 	{

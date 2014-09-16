@@ -11,8 +11,7 @@
 
 namespace Indigo\Fuel;
 
-use Indigo\Cart\CartInterface;
-use Indigo\Cart\Store\StoreInterface;
+use Indigo\Cart\Cart as CartInterface;
 
 /**
  * Cart Facade class
@@ -42,7 +41,7 @@ class Cart extends \Facade
 	 */
 	protected static $_defaults = array(
 		'id'        => 'default',
-		'class'     => 'Indigo\\Cart\\Cart',
+		'class'     => 'Indigo\\Cart\\SimpleCart',
 		'store'     => 'default',
 		'auto_save' => true,
 	);
