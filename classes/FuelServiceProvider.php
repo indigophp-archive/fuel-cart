@@ -77,7 +77,7 @@ class FuelServiceProvider extends ServiceProvider
 
 		$this->registerSingleton('store', function($dic, array $config = [])
 		{
-			return $dic->resolve('Indigo\\Cart\\Fuel\\SessionStore', $config);
+			return $dic->resolve('Indigo\\Fuel\\Cart\\SessionStore', $config);
 		});
 
 		$this->registerSingleton('store.session', function($dic, array $config = [])
