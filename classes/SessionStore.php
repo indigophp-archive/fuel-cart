@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Cart;
+namespace Indigo\Fuel\Cart;
+
+use Indigo\Cart\Cart;
 
 /**
  * Fuel Session Store
@@ -18,7 +20,7 @@ namespace Indigo\Cart;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class FuelSessionStore extends SessionStore
+class SessionStore extends \Indigo\Cart\SessionStore
 {
 	/**
 	 * {@inheritdoc}

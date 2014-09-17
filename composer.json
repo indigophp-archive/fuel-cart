@@ -13,7 +13,6 @@
     ],
     "require": {
         "composer/installers": "~1.0",
-        "indigophp/fuel-core": "~1.0",
         "indigophp/cart": "*"
     },
     "require-dev": {
@@ -23,9 +22,6 @@
         "indigophp/codeception-fuel-module": "dev-develop"
     },
     "autoload": {
-        "psr-0": {
-            "Indigo\\Cart\\": "lib/"
-        },
         "psr-4": {
             "Indigo\\Fuel\\": "classes/"
         }
