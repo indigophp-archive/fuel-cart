@@ -15,15 +15,9 @@
         "composer/installers": "~1.0",
         "indigophp/cart": "*"
     },
-    "require-dev": {
-        "indigophp/cart": "dev-develop",
-        "codeception/codeception": "~2.0.0",
-        "codeception/mockery-module": "dev-master",
-        "indigophp/codeception-fuel-module": "dev-develop"
-    },
     "autoload": {
         "psr-4": {
-            "Indigo\\Fuel\\": "classes/"
+            "Indigo\\Fuel\\Cart\\": "classes/"
         }
     },
     "extra": {

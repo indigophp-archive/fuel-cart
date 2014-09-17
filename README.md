@@ -1,6 +1,5 @@
 # Fuel Cart
 
-[![Build Status](https://travis-ci.org/indigophp/fuel-cart.svg?branch=develop)](https://travis-ci.org/indigophp/fuel-cart)
 [![Latest Stable Version](https://poser.pugx.org/indigophp/fuel-cart/v/stable.png)](https://packagist.org/packages/indigophp/fuel-cart)
 [![Total Downloads](https://poser.pugx.org/indigophp/fuel-cart/downloads.png)](https://packagist.org/packages/indigophp/fuel-cart)
 [![License](https://poser.pugx.org/indigophp/fuel-cart/license.png)](https://packagist.org/packages/indigophp/fuel-cart)
@@ -24,12 +23,6 @@ Via Composer
 
 ## Usage
 
-
-## Testing
-
-``` bash
-$ codecept run
-```
 
 
 ## Contributing
