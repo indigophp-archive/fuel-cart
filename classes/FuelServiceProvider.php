@@ -14,7 +14,7 @@ namespace Indigo\Fuel\Cart;
 use Fuel\Dependency\ServiceProvider;
 
 /**
- * Provides services required by webshop
+ * Provides cart services
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
