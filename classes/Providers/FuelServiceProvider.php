@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Fuel\Cart;
+namespace Indigo\Cart\Providers;
 
 use Fuel\Dependency\ServiceProvider;
 
@@ -18,7 +18,7 @@ use Fuel\Dependency\ServiceProvider;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class CartServiceProvider extends ServiceProvider
+class FuelServiceProvider extends ServiceProvider
 {
 	/**
 	 * {@inheritdoc}
@@ -63,7 +63,7 @@ class CartServiceProvider extends ServiceProvider
 			return $cart;
 		});
 
-		$this->registerSingleton('store', 'Indigo\\Fuel\\Cart\\SessionStore');
+		$this->registerSingleton('store', 'Indigo\\Cart\\FuelSessionStore');
 
 		$this->registerSingleton('store.session', 'Indigo\\Cart\\SessionStore');
 	}

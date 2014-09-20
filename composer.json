@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Indigo\\Fuel\\Cart\\": "classes/"
+            "Indigo\\Cart\\": "classes/"
         }
     },
     "extra": {

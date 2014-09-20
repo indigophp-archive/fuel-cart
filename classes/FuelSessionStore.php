@@ -9,9 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Indigo\Fuel\Cart;
-
-use Indigo\Cart\Cart;
+namespace Indigo\Cart;
 
 /**
  * Fuel Session Store
@@ -20,14 +18,14 @@ use Indigo\Cart\Cart;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class SessionStore extends \Indigo\Cart\SessionStore
+class FuelSessionStore extends SessionStore
 {
 	/**
 	 * {@inheritdoc}
 	 */
 	public function load(Cart $cart)
 	{
-		$items = \Session::get($this->sessionKey . '.' . $cart->getId(), array());
+		$items = \Session::get($this->sessionKey . '.' . $cart->getId(), []);
 
 		$cart->setItems($items);
 
